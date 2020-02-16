@@ -23,6 +23,18 @@ CQ_INIT {
         }
     });
 
+    on_private_message([](const PrivateMessageEvent &e) {
+        try {
+            auto msgid = send_private_message(e.user_id, e.message); // 直接复读消息
+            logging::info_success("私聊", "私聊消息复读完成, 消息 Id: " + to_string(msgid));
+            send_message(e.target,
+                         MessageSegment::face(111) + "这是通过 message 模块构造的消息~"); // 使用 message 模块构造消息
+        } catch (ApiError &e) {
+            logging::warning("私聊", "私聊消息复读失败, 错误码: " + to_string(e.code));
+        }
+    });
+
+
     on_message([](const MessageEvent &e) {
         logging::debug("消息", "收到消息: " + e.message + "\n实际类型: " + typeid(e).name());
     });
