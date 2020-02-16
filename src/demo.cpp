@@ -1,8 +1,10 @@
+#include <cqcppsdk/cqcppsdk.h>
+
 #include <iostream>
 #include <set>
 #include <sstream>
 
-#include <cqcppsdk/cqcppsdk.h>
+#define MYQQ    631261568
 
 using namespace cq;
 using namespace std;
@@ -10,7 +12,31 @@ using Message = cq::message::Message;
 using MessageSegment = cq::message::MessageSegment;
 
 CQ_INIT {
-    on_enable([] { logging::info("启用", "插件已启用"); });
+    on_enable([] {
+        logging::info("启用", "插件已启用");
+        try {
+            auto msgid = send_private_message(MYQQ, "插件开启"); // 发送开始消息
+            logging::info_success("私聊", "私聊开始消息发送完成, 消息 Id: " + to_string(msgid));
+        } catch (ApiError &e) {
+            logging::warning("私聊", "私聊消息复读失败, 错误码: " + to_string(e.code));
+        }
+
+        int timeInSec = 0;
+        for (int i = 0; i < 20; i++) {
+            _sleep(10000);
+            timeInSec += 10;
+            string msg = "应用已运行 " + to_string(timeInSec);
+            //msg += " 秒";
+            logging::info_success("测试", msg );
+            try {
+                auto msgid = send_private_message(MYQQ, msg);
+                logging::info_success("私聊", "time code send complete! ID: " + to_string(msgid));
+
+            } catch (ApiError &e) {
+                logging::warning("私聊", "time code sending failed, error code: " + to_string(e.code));
+            }
+        }
+    });
 
     on_private_message([](const PrivateMessageEvent &e) {
         try {
@@ -19,13 +45,11 @@ CQ_INIT {
             send_message(e.target,
                          MessageSegment::face(111) + "这是通过 message 模块构造的消息~"); // 使用 message 模块构造消息
             _sleep(10000);
-            auto msgid2 = send_private_message(e.user_id, e.message + "wait"); 
+            auto msgid2 = send_private_message(e.user_id, e.message + "wait");
             logging::info_success("私聊", "私聊消息等待十秒复读完成, 消息 Id: " + to_string(msgid2));
         } catch (ApiError &e) {
             logging::warning("私聊", "私聊消息复读失败, 错误码: " + to_string(e.code));
         }
-        
-
     });
 
     on_private_message([](const PrivateMessageEvent &e) {
@@ -38,7 +62,6 @@ CQ_INIT {
             logging::warning("私聊", "私聊消息复读失败, 错误码: " + to_string(e.code));
         }
     });
-
 
     on_message([](const MessageEvent &e) {
         logging::debug("消息", "收到消息: " + e.message + "\n实际类型: " + typeid(e).name());
