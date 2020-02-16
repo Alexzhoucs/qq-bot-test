@@ -18,9 +18,14 @@ CQ_INIT {
             logging::info_success("私聊", "私聊消息复读完成, 消息 Id: " + to_string(msgid));
             send_message(e.target,
                          MessageSegment::face(111) + "这是通过 message 模块构造的消息~"); // 使用 message 模块构造消息
+            _sleep(10000);
+            auto msgid2 = send_private_message(e.user_id, e.message + "wait"); 
+            logging::info_success("私聊", "私聊消息等待十秒复读完成, 消息 Id: " + to_string(msgid2));
         } catch (ApiError &e) {
             logging::warning("私聊", "私聊消息复读失败, 错误码: " + to_string(e.code));
         }
+        
+
     });
 
     on_private_message([](const PrivateMessageEvent &e) {
