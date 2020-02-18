@@ -53,8 +53,7 @@ CQ_INIT {
         } catch (ApiError &e) {
             logging::warning("私聊", "私聊消息复读失败, 错误码: " + to_string(e.code));
         }
-
-        
+                
     });
 
 
