@@ -12,6 +12,9 @@
       - [打包发布](#打包发布)
       - [尝试上云](#尝试上云)
       - [下一步工作](#下一步工作)
+    - [20200218](#20200218)
+      - [尝试上云](#尝试上云-1)
+      - [下一步工作](#下一步工作-1)
 
 <!-- /code_chunk_output -->
 
@@ -68,4 +71,32 @@
 
 ### 20200218
 
-#### 
+#### 尝试上云
+
+* 尝试修改 cpk 包的打包方式，但仍不能运行
+
+* 尝试使用 [包含httpAPI的docker](https://github.com/richardchien/cqhttp-docker)
+    * pull正常，但启动时报错
+    ![控制台截图](./images/error2.png)
+    * Docker 无法运行
+    * 错误应该发生在下载/解压 CoolQ 时
+    
+* 尝试使用 [httpAPI 插件的 Docker](https://cqhttp.cc/docs/4.14/#/Docker) 
+    * pull 成功
+        * 主要区别在于 pull 了 latest 标签的镜像
+    * 原生 “爱音乐” app 无法正常运行
+    * **仍然-102错误**
+
+#### 下一步工作
+
+1. 与nxp交流，得知[他的配置方法](https://github.com/dwxrycb123/AkinaChann
+)
+    * 完全卸载 docker，从头开始安装
+    * 考虑再次按官方文档/[包含httpAPI的docker](https://github.com/richardchien/cqhttp-docker)/ [httpAPI 插件的 Docker](https://cqhttp.cc/docs/4.14/#/Docker) 进行配置
+
+2. 若不行，考虑Windows Server
+
+3. 完成“定时响应”功能
+    * 确认当前时间
+    * 存储事件方式
+        * 测试是否支持json
