@@ -33,6 +33,8 @@
     * Ubuntu 18.04
 
 2. 主要原理
+    * 使用 coolq 的 [cpp sdk](https://github.com/cqmoe/cqcppsdk)进行开发
+        * [文档](https://cqcppsdk.cqp.moe/)
     * coolq 原生 windows 平台运行
     * 在 Ubuntu 中使用 Docker 容器运行 coolq
         * [Docker](https://yeasy.gitbooks.io/docker_practice/content/) 是一个 `容器`
@@ -63,3 +65,7 @@
     * 确认当前时间
     * 存储事件方式
         * 测试是否支持json
+
+### 20200218
+
+#### 
