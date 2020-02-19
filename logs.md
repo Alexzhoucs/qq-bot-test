@@ -15,6 +15,8 @@
     - [20200218](#20200218)
       - [尝试上云](#尝试上云-1)
       - [下一步工作](#下一步工作-1)
+    - [20200219](#20200219)
+      - [尝试上云](#尝试上云-2)
 
 <!-- /code_chunk_output -->
 
@@ -89,8 +91,7 @@
 
 #### 下一步工作
 
-1. 与nxp交流，得知[他的配置方法](https://github.com/dwxrycb123/AkinaChann
-)
+1. 与nxp交流，得知[他的配置方法](https://github.com/dwxrycb123/AkinaChann)
     * 完全卸载 docker，从头开始安装
     * 考虑再次按官方文档/[包含httpAPI的docker](https://github.com/richardchien/cqhttp-docker)/ [httpAPI 插件的 Docker](https://cqhttp.cc/docs/4.14/#/Docker) 进行配置
 
@@ -100,3 +101,32 @@
     * 确认当前时间
     * 存储事件方式
         * 测试是否支持json
+
+4. 使用终端客户端连接服务器
+
+### 20200219
+
+#### 尝试上云
+
+* 使用[nxp的配置方法](https://github.com/dwxrycb123/AkinaChann)
+    * 失败
+    * 考虑查找文档
+    * 考虑使用httpAPI直接调用
+
+* 尝试使用httpAPI
+    * 本机使用测试成功
+        * Chrome 输入 "http://127.0.0.1:5700/send_private_msg?user_id=631261568&message=hello!"
+    * 了解基于httpAPI的 python SDK
+        * [NoneBot](https://github.com/richardchien/nonebot) / [aiocqhttp](https://github.com/cqmoe/python-aiocqhttp)
+        * 选择 NoneBot 
+            * NoneBot 基于 aiocqhttp
+    * 更新 python
+        由于 NoneBot 只支持 Python 3.6 以上版本，故必须进行更新
+        * 下载、解压、make
+        * 在 `make test` 时发生错误
+            ![](./images/errorInPython1.png)
+            * 尝试重新下载
+        * 下载 Python 3.8.1
+            * 同样失败
+            ![](./images/errorInPython2.png)
+
