@@ -129,4 +129,8 @@
         * 下载 Python 3.8.1
             * 同样失败
             ![](./images/errorInPython2.png)
-
+        * [使用 ppa 源及 apt 命令安装](https://cloud.tencent.com/developer/article/1559355)成功
+            * 版本选择了 Python 3.7
+        * [更新 Python 默认指向](https://blog.csdn.net/u014775723/article/details/85213793)
+            * 直接将 python 命令指向 Python 3.7
+            
