@@ -18,6 +18,9 @@
     - [20200219](#20200219)
       - [尝试上云](#尝试上云-2)
       - [下一步工作](#下一步工作-2)
+    - [20200220](#20200220)
+      - [安装 NoneBot](#安装-nonebot)
+      - [下一步工作](#下一步工作-3)
 
 <!-- /code_chunk_output -->
 
@@ -146,6 +149,42 @@
     * 发送消息
     * 接收处理消息
     * 测试对 json 的支持
+
+3. 插件功能
+    1. 定时发送消息
+    2. 使用消息触发定时
+    3. 使用消息为他人定时
+
+### 20200220
+
+#### 安装 NoneBot
+
+* pip 安装后报错
+    ![](./images/errorInPip1.png)
+    * 原因未明
+    * [尝试解决](https://blog.csdn.net/haihonga/article/details/100168691)
+        * 执行语句 `python -m ensurepip`
+            * 再次报错
+                ![](./images/errorInPip2.png)
+            * 考虑强制执行
+        * 执行语句 `python3 -m ensurepip`
+            * 报错
+                ![](./images/errorInPip3.png)
+            * **此错误提示难以搜索到解决方案**
+    * ==此问题解决==
+        * 问题的原因是 pip 未升级到最新版本
+            * 自动下载的版本为 8.x.x 现在使用的版本为 20.x.x
+            * 昨天第一次使用 pip 时报版本过低，需要升级；今天使用时未直接报此错误
+        * pip [升级](https://www.cnblogs.com/huxiangyang/p/10617919.html) 后运行正常
+
+* 成功使用 pip 安装 NoneBot
+* 可以运行
+
+#### 下一步工作
+
+1. 测试 NoneBot 与 httpAPI 的连接情况
+
+2. 尝试使用 Python 的 API
 
 3. 插件功能
     1. 定时发送消息
