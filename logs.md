@@ -25,9 +25,13 @@
       - [使用 NoneBot](#使用-nonebot)
       - [下一步工作](#下一步工作-4)
     - [20200222](#20200222)
-    - [使用 NoneBot](#使用-nonebot-1)
-    - [使用终端连接 Ubuntu](#使用终端连接-ubuntu)
+      - [使用 NoneBot](#使用-nonebot-1)
+      - [使用终端连接 Ubuntu](#使用终端连接-ubuntu)
       - [下一步工作](#下一步工作-5)
+    - [20200223](#20200223)
+      - [使用终端](#使用终端)
+      - [配置 Github](#配置-github)
+      - [开始使用 Python 进行开发](#开始使用-python-进行开发)
 
 <!-- /code_chunk_output -->
 
@@ -235,7 +239,7 @@
 
 ### 20200222
 
-### 使用 NoneBot
+#### 使用 NoneBot
 
 * 在终端重启后，使用 `jobs` 已经无法看到正在运行的 Python 程序
     * 此时使用命令 `ps -aux | grep python` 即可查看
@@ -255,7 +259,7 @@
 
 * 根据教程进行 NoneBot 的学习
 
-### 使用终端连接 Ubuntu
+#### 使用终端连接 Ubuntu
 
 * 下载 [Xshell 家庭/学校免费版](https://www.netsarang.com/zh/free-for-home-school/)
 
@@ -272,3 +276,19 @@
     2. 使用消息触发定时
     3. 使用消息为他人定时
     3. 回复确认是否发送了健康报告
+
+### 20200223
+
+#### 使用终端
+
+* 成功[使用阿里云私钥连接](https://blog.csdn.net/zy13651953784/article/details/93708633)
+    * 注意登录名应设为 “root”
+
+#### 配置 Github
+
+* 成功[使用密钥登陆 Github](https://www.jianshu.com/p/a7161c54047b)
+* 成功拉取新库 [qq-bot-in-Python](https://github.com/Alexzhoucs/qq-bot-in-Python)
+
+#### 开始使用 Python 进行开发
+
+* 后续见 [qq-bot-in-Python](https://github.com/Alexzhoucs/qq-bot-in-Python) 中的 [logs.md](https://github.com/Alexzhoucs/qq-bot-in-Python/blob/master/logs.md)
